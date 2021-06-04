@@ -323,6 +323,20 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(/* str */) {
+  /* if (str.length % 2 !== 0) {
+    return false;
+  }
+  const left = ['[', '(', '{', '<'];
+  const right = [']', ')', '}', '>'];
+  const arr = str.split('');
+  for (let i = 0; i < arr.length; i += 1) {
+    if (left.includes(arr[i])) {
+      const ind = left.indexOf(arr[i]);
+      arr.splice(arr.findIndex(right[ind]), 1);
+    }
+    return false;
+  }
+  return true; */
   throw new Error('Not implemented');
 }
 
@@ -443,8 +457,27 @@ function getMatrixProduct(m1, m2) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(/* position */) {
-  throw new Error('Not implemented');
+function evaluateTicTacToePosition(position) {
+  // hor
+  if ((position[0][0] === position[0][1]) && (position[0][1] === position[0][2])
+    && position[0][0]) return position[0][0];
+  if ((position[1][0] === position[1][1]) && (position[1][1] === position[1][2])
+    && position[1][0]) return position[1][0];
+  if ((position[2][0] === position[2][1]) && (position[2][1] === position[2][2])
+    && position[2][0]) return position[2][0];
+  // vert
+  if ((position[0][0] === position[1][0]) && (position[1][0] === position[2][0])
+    && position[0][0]) return position[0][0];
+  if ((position[0][1] === position[1][1]) && (position[1][1] === position[2][1])
+    && position[0][1]) return position[0][1];
+  if ((position[0][2] === position[1][2]) && (position[1][2] === position[2][2])
+    && position[0][2]) return position[0][2];
+  // dia
+  if ((position[0][0] === position[1][1]) && (position[1][1] === position[2][2])
+    && (position[0][0])) return position[0][0];
+  if ((position[0][2] === position[1][1]) && (position[1][1] === position[2][0])
+    && (position[0][2])) return position[0][2];
+  return undefined;
 }
 
 
